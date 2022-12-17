@@ -2,17 +2,18 @@ import { Link } from "react-router-dom";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import Signup from "../pages/Signup";
-import { Login } from "@mui/icons-material";
+
 
 const Navbar = () => {
   return (
-    <div className="w-full bg-white drop-shadow-sm h-[50px] p-1">
-      <div className="w-[80%] mx-auto border-2 border-gray-400 h-full flex flex-row items-center justify-between">
+    <div className="w-full bg-white drop-shadow-sm h-[50px] p-1 ">
+      <div className="w-[80%] mx-auto  h-full flex flex-row items-center justify-between">
         <div className="flex flex-row items-center">
           <div className="h-[28px] w-[28px] bg-sky-600 flex flex-row items-center justify-center rounded-sm drop-shadow-sm mr-2">
             <div className="text-white font-bold">iN</div>
           </div>
-          <div>
+          <div className="flex items-center">
+            <SearchIcon/>
             <input
               type="text"
               placeholder="search"

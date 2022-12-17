@@ -1,6 +1,6 @@
 const Post = () => {
   return (
-    <div className="post flex-col mb-[12px] shadow-md p-2">
+    <div className="container flex-col mb-[12px] shadow-md px-6 bg-white">
       <div className="top flex items-center">
         <img
           src="https://media.istockphoto.com/id/1365223878/photo/attractive-man-feeling-cheerful.jpg?b=1&s=170667a&w=0&k=20&c=Pt_reBU6pAQV6cXnIcBSLdtYSB4a_8MJM4qWAO_0leU="
