@@ -6,7 +6,7 @@ const Create = () => {
   const [modal, setModal] = useState(false);
 
   return (
-    <div className=" h-[25vh] rounded-md">
+    <div className=" h-[25vh] rounded-md text-xs">
       <div className="create bg-white p-4 rounded-lg">
         <div className="flex items-centerjustify">
           <img
@@ -18,7 +18,7 @@ const Create = () => {
             type="text"
             placeholder="Write something...."
             id="open-modal"
-            className="outline-teal-900 outline-[0.1] rounded-full h-[40px] w-full ml-2 border-solid border-[1px] border-black p-3 "
+            className="outline-teal-900 outline-[0.1] rounded-full h-[40px] w-full ml-2 border-solid border-[1px] border-black p-3 hover:bg-slate-200"
             onClick={() => setModal(true)}
             
           />

@@ -1,6 +1,7 @@
 import GoogleImg from "../assets/googleimg.png";
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 const Login = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -13,7 +14,7 @@ const Login = () => {
         return seterror("All values are required.");
       }
       setloading(true);
-      let res = await axios.post("https://172.20.10.5:3000/auth/signin", {
+      let res = await axios.post("https://172.20.10.5:5000/auth/signin", {
         email,
         password,
       });
@@ -74,7 +75,7 @@ const Login = () => {
             </div>
             <button
               onClick={handleLogin}
-              className="p-[5px] text-sm font-semibold bg-teal-300 rounded-md mt-[12px] h-[40px] hover:bg-teal-300 transition ease-in-out delay-150"
+              className="p-[5px] text-sm font-semibold  bg-teal-500 rounded-full mt-[12px] h-[40px] hover:bg-teal-900  hover:text-white transition-all delay-100"
             >
               {loading ? "loading..." : "Login"}
             </button>
@@ -95,12 +96,12 @@ const Login = () => {
             </button>
           </form>
           <div className="flex items-center mt-[15px]">
-            <p className="text-[12px] text-gray-400">
+            <div className="text-[12px] text-gray-400">
               Don't have an account?{" "}
-              <span className="font-bold ">
-                <a href="#">Sign up for free</a>{" "}
-              </span>{" "}
-            </p>
+              <span className="font-bold pl-1 text-teal-900">
+                <Link to="/signup">Sign Up</Link>
+              </span>
+            </div>
           </div>
           .
         </div>
@@ -109,11 +110,6 @@ const Login = () => {
             <p className="flex text-white p-[20px]">
               I have never experienced such level of audience <br />
               T-blog is such a big stage to share new expriences and story{" "}
-              <br />
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Consequatur temporibus ipsum voluptates aut praesentium,
-              blanditiis doloremque dolor quidem, error nobis nam voluptatum
-              dignissimos, nesciunt fugit. Odio beatae ipsum quam sed?
             </p>
           </div>
         </div>

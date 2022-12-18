@@ -10,7 +10,7 @@ const Home = () => {
       <Navbar />
       <div className=" flex item-center w-[80%] mx-auto pt-5 gap-4">
         <UserBar />
-        <div className="flex-[3] px-3 ">
+        <div className="flex-[3] px-3 bg-transparent">
           <Create />
           <Post />
           <Post />

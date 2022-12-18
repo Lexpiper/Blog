@@ -6,7 +6,7 @@ const UserBar = () => {
   const [file, setfile] = useState("");
 
   return (
-    <div className="flex-[1.2] h-[80vh] flex flex-col sticky top-11  bg-white rounded-t-lg shadow-lg ">
+    <div className="flex-[1.2] h-[80vh] flex flex-col sticky top-11  bg-white rounded-lg shadow-lg text-xs ">
       
       <div className=" min-h-max pt-5 ">
         <div className=" back absolute top-0 bg-pink-400 h-14 w-full z-0 text-center rounded-tr-lg rounded-tl-lg">cover -image</div>
@@ -21,19 +21,19 @@ const UserBar = () => {
               className="align-middle rounded-full"
             />
           </div>
-          <h6 className="text-sm">Zannu Julius</h6>
+          <h6 className="text-xs">Zannu Julius</h6>
           <p className=" text-xs  font-light">Frontend Engineer 💻</p>
         </div>
       </div>
 
       <div>
-        <span className="text-sm flex items-center justify-between px-2 pb-1 hover:bg-slate-100 cursor-pointer mt-4 ">
+        <span className=" flex items-center justify-between px-2 pb-1 hover:bg-slate-100 cursor-pointer mt-4 ">
           <p className="text-xs">who viewed your post</p>
           <span className="text-sm">5</span>
         </span>
         <span className="text-sm flex items-center justify-between px-2 pb-1 hover:bg-slate-100 cursor-pointer ">
           <p className="text-xs">impressions on your post</p>
-          <span className="text-sm">5</span>
+          <span className="text-xs">5</span>
         </span>
       </div>
 

@@ -3,7 +3,6 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import Signup from "../pages/Signup";
 
-
 const Navbar = () => {
   return (
     <div className="w-full bg-white drop-shadow-sm h-[50px] p-1 ">
@@ -12,8 +11,8 @@ const Navbar = () => {
           <div className="h-[28px] w-[28px] bg-sky-600 flex flex-row items-center justify-center rounded-sm drop-shadow-sm mr-2">
             <div className="text-white font-bold">iN</div>
           </div>
-          <div className="flex items-center">
-            <SearchIcon/>
+          <div className="flex items-center  bg-sky-50 ">
+            <SearchIcon />
             <input
               type="text"
               placeholder="search"
@@ -22,8 +21,18 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex items-center py-2 ">
-          <div className="text-md text-white p-1 font-semibold rounded-md bg-teal-800 hover:bg-teal-200 hover:text-black">Login</div>
-          <div className="text-md p-1 font-semibold rounded-md border-[1px]  border-black ml-3 border-solid hover:text-teal-800">Sign up</div>
+          <Link to="/login">
+            <div className="cursor-pointer text-md text-white   px-2 py-1 font-semibold rounded-md bg-teal-800 hover:bg-white hover:text-teal-900 hover:border-teal-900 hover:border-solid hover:border-2">
+              <span className=" animate-pulse transition-all delay-100">
+                Login
+              </span>{" "}
+            </div>
+          </Link>
+          <Link to="/signup">
+            <div className="cursor-pointer text-md  px-2 py-1 font-semibold rounded-md border-[1px]  border-black ml-3 border-solid hover:text-teal-800">
+              Sign up
+            </div>
+          </Link>
         </div>
       </div>
     </div>
