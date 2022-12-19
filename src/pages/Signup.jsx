@@ -2,48 +2,54 @@ import React, { useState } from "react";
 import GoogleImg from "../assets/googleimg.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setloading] = useState(false);
-  const [firstname, setFirstName] = useState("")
-  const [lastname, setLastName] = useState("")
-  const [phone, setPhone] = useState("")
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [phone, setPhone] = useState("");
 
   const handleSignUp = async () => {
     try {
-      const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const emailRegex =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
       // Check if email and password are valid
-      if (!emailRegex.test(email) || password.length < 8 || !/\d/.test(password)) {
-        setError("Please provide a valid email and password (minimum 8 characters, including a number)");
-        
+      if (
+        !emailRegex.test(email) ||
+        password.length < 8 ||
+        !/\d/.test(password)
+      ) {
+        setError(
+          "Please provide a valid email and password (minimum 8 characters, including a number)"
+        );
       }
-        
-      let res = await axios.post("https://172.20.10.5:5000/auth/signup", {
+
+      let res = await axios.post("http://172.20.10.5:5000/auth/signup", {
         firstname,
         lastname,
         email,
         password,
         phone,
       });
-      console.log(res.data,"/////");
+      console.log(res.data, "/////");
     } catch (err) {
       console.log(err.message);
-     
+
       setTimeout(() => {
-        setloading(false)
+        setloading(false);
       }, 1000);
     }
   };
   return (
     <div className="sign up h-screen bg-slate-50 flex flex-col items-center justify-center pt-10 relative">
       <div className="bg-gray-200  rounded-full p-2 sticky top-0 cursor-pointer">
-        <ArrowBackIcon/>
-        </div>
+        <ArrowBackIcon />
+      </div>
       <h1 className="text-center pb-4 text-2xl font-bold ">
         Explore a world of intresting topics.
       </h1>
@@ -58,7 +64,6 @@ const Signup = () => {
               placeholder="Enter your First name"
               value={firstname}
               onChange={(e) => setFirstName(e.target.value)}
-              
             />
             <label className=" mx-0 text-sm mb-2">Last name</label>
             <input
@@ -67,7 +72,6 @@ const Signup = () => {
               placeholder="Enter your last name"
               value={lastname}
               onChange={(e) => setLastName(e.target.value)}
-              
             />
             <label className=" mx-0 text-sm mb-2">Phone number</label>
             <input
@@ -102,7 +106,7 @@ const Signup = () => {
               className="cursor-pointer bg-teal-500 p-2 text-center rounded-full hover:bg-teal-900 text-black hover:text-white transition-all delay-100 "
               onClick={handleSignUp}
             >
-              {loading ? "Signing in": "Agree and Join"}
+              {loading ? "Signing in" : "Agree and Join"}
             </div>
             <div className="ml-[5px] mt-4 border w-full p-1 h-[40px] rounded-full hover:border-black hover:border-1 transition ease-in-out delay-150 flex flex-row items-center justify-center">
               <div className="w-[15px] h-[15px] ">

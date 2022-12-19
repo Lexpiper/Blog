@@ -1,29 +1,40 @@
 import GoogleImg from "../assets/googleimg.png";
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import { setToken } from "../utils/token";
 const Login = () => {
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
+  const [email, setemail] = useState("zannujulius14@gmail.com");
+  const [password, setpassword] = useState("skjn");
   const [loading, setloading] = useState(false);
   const [error, seterror] = useState("");
+  const navigate = useNavigate();
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      if (!(email && password)) {
-        return seterror("All values are required.");
-      }
+      // if (!(email && password)) {
+      //   return seterror("All values are required.");
+      // }
       setloading(true);
-      let res = await axios.post("https://172.20.10.5:5000/auth/signin", {
+      let res = await axios.post("http://172.20.10.5:5000/auth/signin", {
         email,
         password,
       });
-      console.log(res.data, " ////");
-      setTimeout(() => {
-        setloading(false);
-      }, 2000);
+
+      const { message, data } = res.data;
+      if (message == "success") {
+        toast.success("Logged successfully.");
+        await setToken("auth_token", data.token);
+        navigate("/");
+      }
+      setloading(false);
     } catch (err) {
-      console.log(err.message);
+      if (err.response?.data) {
+        setloading(false);
+        return toast.error(err.response.data.data);
+      }
+      toast.error(err.message);
       setloading(false);
     }
   };

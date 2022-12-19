@@ -5,6 +5,11 @@ import Stat from "../components/Stat";
 import Post from "../components/Post";
 
 const Home = () => {
+  useEffect(() => {
+    
+    return () => {};
+  }, []);
+
   return (
     <div className="home bg-gray-200">
       <Navbar />
@@ -12,10 +17,6 @@ const Home = () => {
         <UserBar />
         <div className="flex-[3] px-3 bg-transparent">
           <Create />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
           <Post />
         </div>
         <Stat />
