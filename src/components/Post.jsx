@@ -19,7 +19,7 @@ const Post = () => {
   // ];
 
   return (
-    <div className="container h-fit flex-col mb-[12px] shadow-md  bg-white text-sm gap-3 border-solid pb-4 rounded-lg">
+    <div className="container h-fit flex-col mb-[12px] shadow-md  p-2 bg-white text-sm gap-3 border-solid pb-4 rounded-lg">
       <div className="top flex items-center">
         <img
           src="https://media.istockphoto.com/id/1365223878/photo/attractive-man-feeling-cheerful.jpg?b=1&s=170667a&w=0&k=20&c=Pt_reBU6pAQV6cXnIcBSLdtYSB4a_8MJM4qWAO_0leU="

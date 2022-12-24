@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 const Stat = () => {
   return (
-    <div className="flex-[1.5] h-[80vh] flex flex-col sticky top-11 p-1  bg-white rounded-lg shadow-md ">
+    <div className="flex-[1.5] h-[80vh] flex flex-col  p-1  bg-white rounded-lg shadow-md ">
       <h2 className="text-left p-2 font-bold">Add to your feed</h2>
 
       <div className="flex text-sm items-center p-2  w-full mb-3">
@@ -44,7 +44,7 @@ const Stat = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col p-2 text-sm">
+      <div className="flex flex-col p-2 text-sm sticky top-11">
          <h3 className="text-gray-500 text-lg">Categories</h3>
          <div className="flex flex-col items-center justify-center">
           <Link>

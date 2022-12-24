@@ -1,30 +1,46 @@
 import GoogleImg from "../assets/googleimg.png";
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import { setToken } from "../utils/token";
+
 const Login = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const [loading, setloading] = useState(false);
+  const [logging, setlogging] = useState(false);
   const [error, seterror] = useState("");
+  const navigate = useNavigate();
+
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       if (!(email && password)) {
         return seterror("All values are required.");
       }
-      setloading(true);
-      let res = await axios.post("https://172.20.10.5:5000/auth/signin", {
+      setlogging(true);
+      let res = await axios.post("http://172.20.10.5:5000/auth/signin", {
         email,
         password,
       });
       console.log(res.data, " ////");
-      setTimeout(() => {
-        setloading(false);
-      }, 2000);
-    } catch (err) {
+      const { message, data } = res.data;
+      if (message === "success") {
+        toast.success("logged in successfully.");
+        setToken('auth_token', data.token)
+        navigate("/");
+      }
+        setlogging(false);
+     } catch (err) {
       console.log(err.message);
-      setloading(false);
+      if (err.response?.data) {
+        setlogging(false);
+        console.log(err.response)
+        return toast.error(err.response.data.data);
+      }
+      toast.error(err.message);
+      setlogging(false);
     }
   };
   return (
@@ -32,7 +48,7 @@ const Login = () => {
       <div className="flex shadow-sm rounded-md justify-center w-[65%] mx-auto h-[500px] ">
         <div className="flex bg-white flex-[1] flex-col items-center justify-center ">
           <div className=" flex items-center flex-col ">
-            <h1 className=" font-bold text-xl text-center font-[poppins] ">
+            <h1 className=" font-bold text-4xl text-center font-[poppins] ">
               Welcome Back
             </h1>
             <p className="text-gray-400 font-light">
@@ -77,10 +93,10 @@ const Login = () => {
               onClick={handleLogin}
               className="p-[5px] text-sm font-semibold  bg-teal-500 rounded-full mt-[12px] h-[40px] hover:bg-teal-900  hover:text-white transition-all delay-100"
             >
-              {loading ? "loading..." : "Login"}
+              {logging ? "Logging in..." : "Login"}
             </button>
 
-            <button className="ml-[5px] mt-4 border w-full p-1 h-[40px] rounded-md hover:border-black hover:border-1 transition ease-in-out delay-150 flex flex-row items-center justify-center">
+            <button className=" ml-[5px] mt-4 border w-full p-1 h-[40px] rounded-full hover:border-black hover:border-1 transition ease-in-out delay-150 flex flex-row items-center justify-center">
               <div className="w-[15px] h-[15px] ">
                 <img
                   src={GoogleImg}
@@ -99,7 +115,9 @@ const Login = () => {
             <div className="text-[12px] text-gray-400">
               Don't have an account?{" "}
               <span className="font-bold pl-1 text-teal-900">
-                <Link to="/signup">Sign Up</Link>
+                <Link to="/signup" className="animate-pulse">
+                  Sign Up
+                </Link>
               </span>
             </div>
           </div>

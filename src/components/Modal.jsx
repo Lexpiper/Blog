@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
+import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
+import { Tooltip } from "@mui/material";
 
 const Modal = ({ modal, onClose }) => {
   const [color, setColor] = useState(false);
@@ -39,22 +41,31 @@ const Modal = ({ modal, onClose }) => {
           <p className="text-sm">Zannu Julius</p>
         </div>
 
-        <div className="p-4 w-full h-full ">
+        <div className="p-4 w-full h-full text-sm ">
           <textarea
             className=" resize-none w-full h-full  outline-none"
             placeholder="What do you want to talk about ?"
             onInput={() => setColor(true)}
           ></textarea>
         </div>
-
-        <div
-          className={`${
-            color === true
-              ? "bg-teal-900 place-self-end px-3 py-1 text-white rounded-full"
-              : "place-self-end px-3 py-1 bg-gray-200 text-gray-400 rounded-full"
-          } cursor-pointer`} 
-        >
-          Post
+        <div className="flex items-center justify-between">
+          <Tooltip
+            title="Add  picture"
+            style={{ backgroundColor: "#eee", fontSize: "40px" }}
+            arrow
+          >
+            <InsertPhotoIcon color="primary" />
+          </Tooltip>
+          <div />
+          <div
+            className={`${
+              color === true
+                ? "bg-teal-900 place-self-end px-3 py-1 text-sm text-white rounded-full"
+                : "place-self-end px-3 py-1 bg-gray-200 text-sm text-gray-400 rounded-full"
+            } cursor-pointer`}
+          >
+            Post
+          </div>
         </div>
       </div>
     </div>

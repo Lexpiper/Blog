@@ -6,26 +6,26 @@ const Create = () => {
   const [modal, setModal] = useState(false);
 
   return (
-    <div className=" h-[25vh] rounded-md text-xs">
-      <div className="create bg-white p-4 rounded-lg">
-        <div className="flex items-centerjustify">
+    <div className=" h-[20vh] rounded-md text-xs mb-4">
+      <div className="create bg-white rounded-lg p-2">
+        <div className="flex items-center justify-center">
           <img
             src="https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
             alt="image"
-            className="w-[40px] h-[40px] rounded-full cursor-pointer"
+            className="w-[50px] h-[50px] rounded-full cursor-pointer"
           />
           <input
             type="text"
             placeholder="Write something...."
             id="open-modal"
-            className="outline-teal-900 outline-[0.1] rounded-full h-[40px] w-full ml-2 border-solid border-[1px] border-black p-3 hover:bg-slate-200"
+            className="outline-teal-900 outline-[0.1] rounded-full h-[40px] w-full ml-2 border-solid border-[1px] border-black p-3 hover:bg-slate-100 cursor-pointer"
             onClick={() => setModal(true)}
             
           />
         
           {modal && <Modal modal={setModal} onClose={() => setModal(false)}/>}
         </div>
-        <div className="flex items-center justify-center p-3 text-sm">
+        <div className="flex items-center justify-center  text-sm">
           <span className="flex  items-center hover:bg-slate-200 p-2 rounded-md">
             <img src={googleimg} alt="img" className="w-[10px] h-[10px] mr-2" />
             <p>Post</p>
