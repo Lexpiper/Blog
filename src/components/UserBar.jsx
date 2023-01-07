@@ -3,10 +3,10 @@ import { useState } from "react";
 import googleimg from "../assets/googleimg.png";
 
 const UserBar = () => {
-  const [file, setfile] = useState("");
+  
 
   return (
-    <div className="flex-[1.2] h-[80vh] flex flex-col sticky top-11  bg-white rounded-lg shadow-lg text-xs ">
+    <div className="flex-[1.2] h-fit flex flex-col sticky top-11  bg-white rounded-lg shadow-lg text-xs pb-6">
       
       <div className=" min-h-max pt-5 ">
         <div className=" back absolute top-0 bg-pink-400 h-14 w-full z-0 text-center rounded-tr-lg rounded-tl-lg">cover -image</div>

@@ -1,23 +1,7 @@
 
+const Post = ({item}) => {
 
-const Post = () => {
-  // const data = [
-  //   (author = {
-  //     name: "zannu Julius",
-  //     Profession: "Frontend developer",
-  //   }),
-  //   (image = {
-  //     url: "",
-  //   }),
-  //   (article = {
-  //     image: "",
-  //     post: "",
-  //   }),
-  //   (time = {
-  //     seen: "",
-  //   }),
-  // ];
-
+  
   return (
     <div className="container h-fit flex-col mb-[12px] shadow-md  p-2 bg-white text-sm gap-3 border-solid pb-4 rounded-lg">
       <div className="top flex items-center">
@@ -27,7 +11,7 @@ const Post = () => {
           className="w-[35px] h-[35px] rounded-full mr-[20px]"
         />
         <div className="deta flex-[4] text-sm p-2 ">
-          <h6 className=" text-sm font-bold">Amina Halima</h6>
+          <h6 className=" text-sm font-bold">{item.userId.firstname[0].toUpperCase() + item.userId.firstname.substring(1)} {item.userId.lastname}</h6>
           <p>Front-end Developer</p>
           <p className="text-xs font-light">1 hour ago</p>
         </div>
@@ -38,10 +22,7 @@ const Post = () => {
 
       <div className=" h-40 flex flex-col p-2 ">
         <div className="  h-fit w-full p-2 text-sm outline-none overflow-hidden">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-          impedit voluptatibus inventore, iste velit harum autem incidunt fuga
-          cum aut doloremque aliquid veritatis quae tempora excepturi illo,
-          minus, error obcaecati.
+          {item.content.substring(0, 30) + "..."}
         </div>
         <div className="text-xs px-2 bg-teal-900 text-white w-fit py-1 rounded-xl cursor-pointer transform hover:-translate-y-1 transition delay-100">more</div>
       </div>
@@ -49,7 +30,7 @@ const Post = () => {
 
       <div className=" h-44 w-full flex container  ">
         <img
-          src="https://images.unsplash.com/photo-1671026423293-7adf6a6abd13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxN3x8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=60"
+          src={`http://108.174.203.155:5000/${item.image}`}
           alt="image post"
           width="100%"
           height="100%"

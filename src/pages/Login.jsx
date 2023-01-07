@@ -1,4 +1,4 @@
-import GoogleImg from "../assets/googleimg.png";
+import GoogleImg from "../assets/googleimg.png";  
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,8 +6,8 @@ import { toast, ToastContainer } from "react-toastify";
 import { setToken } from "../utils/token";
 
 const Login = () => {
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
+  const [email, setemail] = useState("zannujulius@gmail.com");
+  const [password, setpassword] = useState("@@@julius");
   const [logging, setlogging] = useState(false);
   const [error, seterror] = useState("");
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const Login = () => {
         return seterror("All values are required.");
       }
       setlogging(true);
-      let res = await axios.post("http://172.20.10.5:5000/auth/signin", {
+      let res = await axios.post("http://108.174.203.155:5000/auth/signin", {
         email,
         password,
       });

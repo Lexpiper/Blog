@@ -39,7 +39,7 @@ const Signup = () => {
         );
       }
 
-      let res = await axios.post("http://172.20.10.5:5000/auth/signup", {
+      let res = await axios.post("http://108.174.203.155:5000/auth/signup", {
         firstname,
         lastname,
         email,
